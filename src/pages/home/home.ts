@@ -23,4 +23,5 @@ export class HomePage {
       this.user = user;
     });
   }
+
 }
