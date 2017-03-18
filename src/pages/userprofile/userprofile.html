@@ -1,18 +1,31 @@
-<!--
-  Generated template for the Userprofile page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>userprofile</ion-title>
+    <ion-title>User Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding *ngIf="user">
+    <ion-card>
+        <img src="{{user.avatar_url}}" (click)="userSelected(user)" />
+        <ion-card-content>
+            <ion-card-title>
+                {{user.name}} (@{{user.login}})
+            </ion-card-title>
+            <p>
+                {{user.bio}}
+            </p>
+        </ion-card-content>
+    </ion-card>
+    <ion-list *ngIf="repos" class="repos-list"> 
+        <ion-item *ngFor="let repo of repos">
+            <ion-icon name="git-branch" item-left></ion-icon>
+            <h2>{{repo.name}}</h2>
+            <p>{{repo.description}}</p>
+            <ion-note item-right>{{repo.language}}</ion-note>
+            <button ion-button clear item-right>View</button>
+        </ion-item>
+    </ion-list>
 </ion-content>

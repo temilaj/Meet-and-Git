@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Githubservice } from "../../providers/githubservice";
 
-/*
-  Generated class for the Userprofile page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-userprofile',
   templateUrl: 'userprofile.html'
 })
 export class UserprofilePage {
+  user: any;
+  repos:any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private githubService: Githubservice) {
+
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UserprofilePage');
+    this.user = this.navParams.get('user');
+    this.githubService.getRepos(this.user.login).subscribe(repos => this.repos = repos)
   }
 
 }

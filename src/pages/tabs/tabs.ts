@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { HomePage } from "../home/home";
+import { RanksPage } from "../ranks/ranks";
 
 @Component({
     templateUrl: 'tabs.html'
@@ -13,5 +14,6 @@ export class TabsPage {
      * @memberOf TabsPage
      */
     homePage: any = HomePage;
+    ranksPage: any = RanksPage;
 
 }

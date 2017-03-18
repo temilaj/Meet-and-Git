@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { Githubservice } from "../../providers/githubservice";
+import { UserprofilePage } from "../userprofile/userprofile";
 
 @Component({
   selector: 'page-home',
@@ -24,4 +25,9 @@ export class HomePage {
     });
   }
 
+  userSelected(user){
+    this.navCtrl.push(UserprofilePage,{
+      user: user
+    })
+  }
 }
