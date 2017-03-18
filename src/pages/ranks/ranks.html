@@ -1,9 +1,3 @@
-<!--
-  Generated template for the Ranks page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -14,5 +8,38 @@
 
 
 <ion-content padding>
+    <form (submit)="getRank()">
+        <ion-list>
+            <ion-item>
+                <ion-label>Language</ion-label>
+                <ion-select [(ngModel)]="language" name="language">
+                    <ion-option value="javascript">Java Script</ion-option>
+                    <ion-option value="go">Go</ion-option>
+                    <ion-option value="ruby">Ruby</ion-option>
+                    <ion-option value="typescript">Type Script</ion-option>
+                    <ion-option value="CSS">CSS</ion-option>
+                    <ion-option value="C%23">C#</ion-option>
+                    <ion-option value="html">HTML</ion-option>
+                    <ion-option value="php">PHP</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-input type="text" placeholder="Enter city name.." [(ngModel)]="cityname" name="cityname"></ion-input>
+            </ion-item>
+        </ion-list>
+         <div>
+            <button ion-button color="primary" block>Go</button>
+        </div>
+    </form>
 
+    <ion-list *ngIf="users" padding-top>
+        <ion-item *ngFor="let user of users" (click)="userSelected($event, user)">
+            <ion-avatar item-left>
+                <img src="{{user.avatar_url}}">
+            </ion-avatar>
+            <h2>{{user.login}}</h2>
+            <!--<h3>Don't Know What To Do!</h3>-->
+            <!--<p>I've had a pretty messed up day. If we just...</p>-->
+        </ion-item>
+    </ion-list>
 </ion-content>
