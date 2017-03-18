@@ -7,8 +7,62 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-item>
+    <ion-label fixed>Github username</ion-label>
+    <ion-input type="text" value="" [(ngModel)]="username" name="username" (keyup)="searchUser()"></ion-input>
+  </ion-item>
+
+
+  <ion-card *ngIf="user">
+    <img src="{{user.avatar_url}}" (click)="userSelected(user)" />
+    <ion-card-content>
+      <ion-card-title>
+        {{user.name}} (@{{user.login}})
+      </ion-card-title>
+      <p>
+        {{user.bio}}
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="complete" icon-left>
+          <ion-icon name='pin'></ion-icon>
+          {{user.location}}
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='time'></ion-icon>
+          {{user.created_at | date: 'dd/MM/yyyy'}}
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-left (click)="userSelected(user)">
+          <ion-icon name='share-alt'></ion-icon>
+          View
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-item>
+      <ion-icon name='apps' item-left style="color: #d03e84"></ion-icon>
+      Repos
+      <ion-badge item-right>{{user.public_repos}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      company
+      <ion-badge item-right>{{user.company}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='people' item-left color="danger"></ion-icon>
+      Followers
+      <ion-badge item-right>{{user.followers}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='people' item-left color="danger"></ion-icon>
+      Following
+      <ion-badge item-right>{{user.following}}</ion-badge>
+    </ion-item>
+  </ion-card>
 </ion-content>
