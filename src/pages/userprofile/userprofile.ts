@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { Githubservice } from "../../providers/githubservice";
 
 @Component({
@@ -10,7 +10,7 @@ export class UserprofilePage {
   user: any;
   repos:any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private githubService: Githubservice) {
+  constructor(public navParams: NavParams, private githubService: Githubservice) {
 
   }
 

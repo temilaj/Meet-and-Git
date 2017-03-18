@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { Githubservice } from "../../providers/githubservice";
 import { UserprofilePage } from "../userprofile/userprofile";
 
@@ -13,11 +13,7 @@ export class RanksPage {
   user: any;
   users: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private githubService: Githubservice) { }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RanksPage');
-  }
+  constructor(public navCtrl: NavController, private githubService: Githubservice) { }
 
   getRank(){
         this.githubService.rankUsers(this.cityname, this.language).subscribe(res => 
