@@ -20,7 +20,7 @@
         </ion-card-content>
     </ion-card>
     <ion-list *ngIf="repos" class="repos-list"> 
-        <ion-item *ngFor="let repo of repos">
+        <ion-item *ngFor="let repo of repos" (click)="repoSelected($event, repo)">
             <ion-icon name="git-branch" item-left></ion-icon>
             <h2>{{repo.name}}</h2>
             <p>{{repo.description}}</p>

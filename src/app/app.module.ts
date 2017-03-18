@@ -6,6 +6,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { UserprofilePage } from "../pages/userprofile/userprofile";
 import { RanksPage } from "../pages/ranks/ranks";
 import { AboutPage } from "../pages/about/about";
+import { RepoDetailPage } from "../pages/modals/repodetails";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AboutPage } from "../pages/about/about";
     UserprofilePage,
     RanksPage,
     AboutPage,
+    RepoDetailPage,
     TabsPage
   ],
   imports: [
@@ -26,6 +28,7 @@ import { AboutPage } from "../pages/about/about";
     UserprofilePage,
     RanksPage,
     AboutPage,
+    RepoDetailPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]

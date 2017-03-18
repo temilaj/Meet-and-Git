@@ -11,7 +11,6 @@ export class TabsPage {
     /**
      * This tells the tabs component which Pages
      * should be each tabs root page
-     * @type {*}
      * @memberOf TabsPage
      */
     homePage: any = HomePage;
