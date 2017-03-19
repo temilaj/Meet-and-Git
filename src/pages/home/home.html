@@ -11,7 +11,6 @@
     <ion-input type="text" placeholder="Github username"[(ngModel)]="username" name="username" (keyup)="searchUser()"></ion-input>
   </ion-item>
 
-
   <ion-card *ngIf="user">
     <img src="{{user.avatar_url}}" (click)="userSelected(user)" />
     <ion-card-content>

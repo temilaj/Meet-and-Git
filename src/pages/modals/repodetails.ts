@@ -14,8 +14,6 @@ export class RepoDetailPage {
     public viewCtrl: ViewController
   ) {
     this.repo = this.navParams.get('repo');
-    console.log(this.repo);
-
   }
   
    dismiss() {
