@@ -11,6 +11,16 @@ export class UserprofilePage {
   repo:any;
   repos:any[];
 
+  /**
+   * Creates an instance of UserprofilePage.
+   * and injects the following dependencies
+   * @param {NavController} navCtrl 
+   * @param {NavParams} navParams 
+   * @param {Githubservice} githubService 
+   * @param {ModalController} modalCtrl 
+   * 
+   * @memberOf UserprofilePage
+   */
   constructor(public navCtrl: NavController,
    public navParams: NavParams, 
    private githubService: Githubservice, 

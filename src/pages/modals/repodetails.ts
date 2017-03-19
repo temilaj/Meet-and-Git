@@ -9,6 +9,14 @@ import { ModalController, Platform, NavParams, ViewController } from 'ionic-angu
 export class RepoDetailPage {
   repo: any;
 
+  /**
+   * Creates an instance of RepoDetailPage.
+   * and injects the following depndencies
+   * @param {NavParams} navParams 
+   * @param {ViewController} viewCtrl 
+   * 
+   * @memberOf RepoDetailPage
+   */
   constructor(
     public navParams: NavParams,
     public viewCtrl: ViewController

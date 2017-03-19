@@ -7,6 +7,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  /**
+   * Creates an instance of AboutPage
+   * @memberOf AboutPage
+   */
+  constructor() {}
 
 }

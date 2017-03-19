@@ -13,6 +13,14 @@ export class RanksPage {
   user: any;
   users: any[];
 
+  /**
+   * Creates an instance of RanksPage
+   * and injects the following depndencies
+   * @param {NavController} navCtrl 
+   * @param {Githubservice} githubService 
+   * 
+   * @memberOf RanksPage
+   */
   constructor(public navCtrl: NavController, private githubService: Githubservice) { }
 
   /**

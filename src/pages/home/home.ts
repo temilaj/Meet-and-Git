@@ -14,6 +14,14 @@ export class HomePage {
   repos :any[];
   users: any;
 
+  /**
+   * Creates an instance of HomePage.
+   * and injects the following depndencies
+   * @param {NavController} navCtrl 
+   * @param {Githubservice} githubService 
+   * 
+   * @memberOf HomePage
+   */
   constructor(public navCtrl: NavController, private githubService: Githubservice) {
     
   }
