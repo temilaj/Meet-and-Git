@@ -8,24 +8,64 @@
 
 
 <ion-content padding *ngIf="user">
-    <ion-card>
-        <img src="{{user.avatar_url}}" (click)="userSelected(user)" />
-        <ion-card-content>
-            <ion-card-title>
-                {{user.name}} (@{{user.login}})
-            </ion-card-title>
-            <p>
-                {{user.bio}}
-            </p>
-        </ion-card-content>
-    </ion-card>
-    <ion-list *ngIf="repos" class="repos-list"> 
-        <ion-item *ngFor="let repo of repos" (click)="repoSelected($event, repo)">
-            <ion-icon name="git-branch" item-left></ion-icon>
-            <h2>{{repo.name}}</h2>
-            <p>{{repo.description}}</p>
-            <ion-note item-right>{{repo.language}}</ion-note>
-            <!--<button ion-button clear item-right>View</button>-->
-        </ion-item>
-    </ion-list>
+  <ion-card>
+    <img src="{{user.avatar_url}}" (click)="userSelected(user)" />
+    <ion-card-content>
+      <ion-card-title>
+        {{user.name}} (@{{user.login}})
+      </ion-card-title>
+      <p>
+        {{user.bio}}
+      </p>
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="complete" icon-left>
+          <ion-icon name='pin'></ion-icon>
+          {{user.location}}
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='time'></ion-icon>
+          {{user.created_at | date: 'dd/MM/yyyy'}}
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-left (click)="userSelected(user)">
+          <ion-icon name='share-alt'></ion-icon>
+          View
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-item>
+      <ion-icon name='apps' item-left style="color: #d03e84"></ion-icon>
+      Repos
+      <ion-badge item-right>{{user.public_repos}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      company
+      <ion-badge item-right>{{user.company}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='people' item-left color="danger"></ion-icon>
+      Followers
+      <ion-badge item-right>{{user.followers}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='people' item-left color="danger"></ion-icon>
+      Following
+      <ion-badge item-right>{{user.following}}</ion-badge>
+    </ion-item>
+  </ion-card>
+  <ion-list *ngIf="repos" class="repos-list">
+    <ion-item *ngFor="let repo of repos" (click)="repoSelected($event, repo)">
+      <ion-icon name="git-branch" item-left></ion-icon>
+      <h2>{{repo.name}}</h2>
+      <p>{{repo.description}}</p>
+      <ion-note item-right>{{repo.language}}</ion-note>
+      <!--<button ion-button clear item-right>View</button>-->
+    </ion-item>
+  </ion-list>
 </ion-content>
