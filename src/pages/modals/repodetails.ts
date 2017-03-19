@@ -16,6 +16,11 @@ export class RepoDetailPage {
     this.repo = this.navParams.get('repo');
   }
   
+   /**
+    * dismiss modal
+    * 
+    * @memberOf RepoDetailPage
+    */
    dismiss() {
     this.viewCtrl.dismiss();
   }

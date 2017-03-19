@@ -18,20 +18,35 @@ export class UserprofilePage {
 
   }
 
+  /**
+   * load initialize user property
+   * from the navigation data
+   * and get the users github repos 
+   * 
+   * @memberOf UserprofilePage
+   */
   ionViewDidLoad() {
     this.user = this.navParams.get('user');
-    this.githubService.getRepos(this.user.login).subscribe(repos => this.repos = repos)
+    this.githubService
+        .getRepos(this.user.login)
+        .subscribe(repos => this.repos = repos)
   }
 
+  /**
+   * create modal and pass
+   * data (repo) into the modal
+   * 
+   * @param {any} $event 
+   * @param {any} repo 
+   * 
+   * @memberOf UserprofilePage
+   */
   repoSelected($event, repo){
-    // console.log($event);
-    // console.log(repo);
-    let modal = this.modalCtrl.create(RepoDetailPage, 
-    {repo:repo});
+    let modal = this.modalCtrl.create
+    (RepoDetailPage,{
+      repo:repo
+    });
     modal.present();
-    // this.navCtrl.push(RepoDetailPage,{
-    //   repo : repo
-    // })
   }
 
 }

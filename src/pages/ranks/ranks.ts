@@ -15,11 +15,17 @@ export class RanksPage {
 
   constructor(public navCtrl: NavController, private githubService: Githubservice) { }
 
+  /**
+   * get github users best matching
+   * the parameters cityname and language
+   * 
+   * @memberOf RanksPage
+   */
   getRank(){
-        this.githubService.rankUsers(this.cityname, this.language).subscribe(res => 
-        {
+        this.githubService.rankUsers(this.cityname, this.language)
+        .subscribe(res => {
             this.users = res.items;
-        })
+        });
     }
 
     /**
